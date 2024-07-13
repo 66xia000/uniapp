@@ -20,7 +20,7 @@ module.exports = {
       },
     }),
     tailwindcss({
-      config: "./tailwind.config.js",
+      config: "./tailwind.config.cjs",
     }),
     autoprefixer({
       remove: true,
