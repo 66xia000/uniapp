@@ -1,5 +1,4 @@
 import { defineConfig } from "vite";
-// @ts-ignore
 import postcssConfig from './postcss.config'
 import uni from "@dcloudio/vite-plugin-uni";
 import uvtw from '@uni-helper/vite-plugin-uni-tailwind'
