@@ -10,7 +10,14 @@
     {
       "path": "pages/scan/scan",
       "style": {
-        "navigationBarTitleText": "",
+        "navigationBarTitleText": "扫码界面",
+        "enablePullDownRefresh": true
+      }
+    },
+    {
+      "path": "pages/cart/cart",
+      "style": {
+        "navigationBarTitleText": "购物车界面",
         "enablePullDownRefresh": true
       }
     }
