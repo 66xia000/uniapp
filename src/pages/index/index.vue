@@ -1,7 +1,11 @@
 <template>
   <view>
-    <button @click="goScan">跳转扫码</button>
-    <button @click="goCart">跳转购物车</button>
+    <button @click="()=>{
+    uni.navigateTo({
+    url: '/pages/scan/scan?id=111'
+    });
+    }">跳转界面
+    </button>
     <view class="flex justify-around mt-3">
       <image src="/static/OIP-C.jpg" class="h-[5rem] w-[5rem]"></image>
       <image src="/static/logo.png" class="h-[5rem] w-[5rem]"></image>
@@ -47,19 +51,7 @@ export default {
     }
   },
   methods: {
-    goScan: () => {
-      console.log("跳转scan中")
-      uni.navigateTo({
-        url: '/pages/scan/scan?id=111'
-      });
-    },
 
-    goCart: () => {
-      console.log("跳转scan中")
-      uni.navigateTo({
-        url: '/pages/cart/cart?id=111'
-      });
-    },
   },
   onLoad() {
 
