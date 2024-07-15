@@ -10,7 +10,14 @@
     {
       "path": "pages/scan/scan",
       "style": {
-        "navigationBarTitleText": "",
+        "navigationBarTitleText": "扫码界面",
+        "enablePullDownRefresh": true
+      }
+    },
+    {
+      "path": "pages/cart/cart",
+      "style": {
+        "navigationBarTitleText": "购物车界面",
         "enablePullDownRefresh": true
       }
     }
@@ -20,5 +27,31 @@
     "navigationBarTitleText": "uni-app",
     "navigationBarBackgroundColor": "#F8F8F8",
     "backgroundColor": "#F8F8F8"
-	}
+  },
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#3cc51f",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "static/icons/index.png",
+        "selectedIconPath": "static/icons/index_selected.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/cart/cart",
+        "iconPath": "static/icons/cart.png",
+        "selectedIconPath": "static/icons/cart_selected.png",
+        "text": "购物车"
+      }
+//      {
+//        "pagePath": "pages/scan/scan",
+//        "iconPath": "static/icons/3.png",
+//        "selectedIconPath": "static/icons/3.png",
+//        "text": "扫码"
+//      }
+    ]
+  }
 }
