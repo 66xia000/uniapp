@@ -18,15 +18,49 @@
         </view>
       </view>
     </view>
-    <uv-vtabs :chain="chain" :list="currentSuperMarket.commodities" :barItemBadgeStyle="{ right: '20px', top: '12px' }"
-      @change="change">
-      <uv-vtabs-item>
-        <view class="item" v-for="(item2, index2) in getGoods" :key="index2">
-          <text class="text">{{ item2.name }}</text>
-          <text class="text">{{ item2.price }}</text>
-        </view>
-      </uv-vtabs-item>
-    </uv-vtabs>
+    <view class="mt-8">
+      <uv-vtabs
+          :chain="chain"
+          :list="currentSuperMarket.commodities"
+          :height="height"
+          hdHeight="100rpx"
+      >
+        <template v-for="(item,index) in currentSuperMarket.commodities" :key="index">
+          <uv-vtabs-item :index="index">
+            <view class="item flex mt-4"
+                  v-for="(item2,index2) in item.goods"
+                  :key="index2">
+              <image :src="item2.imgSrc" class="h-24 w-24"></image>
+              <view class="flex-col flex-1">
+                <view class="h-12 items-center  ml-2">
+                  <view class="text-xl mt-4 ">{{ item2.name }}</view>
+                </view>
+                <view class="flex">
+                  <view class="text-lg mt-4 ml-2">￥{{ item2.price }}</view>
+                  <view class="flex flex-1 justify-end items-end  mr-3">
+                    <view class="mr-1" v-show="item2.count>0" @click="item2.count--">
+                      <uv-icon name="minus-circle" size="24" color="#000000"></uv-icon>
+                    </view>
+                    <text class="text-[20px] text-center w-[40px] mr-1" v-show="item2.count>0">{{ item2.count }}</text>
+                    <view class="m-0" @click="item2.count++">
+                      <uv-icon name="plus-circle" size="24" color="#000000"></uv-icon>
+                    </view>
+                  </view>
+                </view>
+
+              </view>
+            </view>
+            <view
+                class="gap"
+                v-if="index<currentSuperMarket.commodities.length-1">
+              <uv-gap bg-color="#f1f1f1" height="4"></uv-gap>
+            </view>
+          </uv-vtabs-item>
+        </template>
+        <uv-gap bg-color="#fff" height="600"></uv-gap>
+      </uv-vtabs>
+
+    </view>
   </view>
 </template>
 <script>
@@ -45,12 +79,14 @@ export default {
               {
                 name: "牛肉",//牛肉
                 price: "30",
-                imgsrc: "https://tse4-mm.cn.bing.net/th/id/OIP-C._L6Sg18dMGssq_exB21kKgHaE3?rs=1&pid=ImgDetMain"
+                count: 0,
+                imgSrc: "https://tse4-mm.cn.bing.net/th/id/OIP-C._L6Sg18dMGssq_exB21kKgHaE3?rs=1&pid=ImgDetMain"
               },
               {
                 name: "冰鲜鸡翅中",
                 price: "25",
-                imgsrc: "https://pic.nximg.cn/file/20160117/6770918_203309954000_2.jpg"
+                count: 0,
+                imgSrc: "https://pic.nximg.cn/file/20160117/6770918_203309954000_2.jpg"
               }
             ]
           },
@@ -70,22 +106,6 @@ export default {
       },
     };
   },
-  computed: {
-    getGoods() {
-      const _list = this.list[this.value]?.childrens;
-      return _list ? _list : [];
-    }
-  },
-
-  methods: {
-    change(index) {
-      this.tabValue = index;
-      // console.log(this.currentSuperMarket.commodities[this.tabValue]?.goods);
-      console.log(JSON.stringify(this.currentSuperMarket.commodities[this.tabValue]?.goods));
-      console.log("index changed to", index);
-      console.log("getGoods ", getGoods());
-    }
-  }
 };
 
 </script>
