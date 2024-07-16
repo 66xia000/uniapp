@@ -14,6 +14,15 @@
 
       </uv-swiper>
     </view>
+    <view class="bg-transparent">
+      <uv-grid :border="false" col="5">
+        <uv-grid-item v-for="(item,index) in baseList" :key="index">
+          <image :src="'../../static/icons/grid/'+index%6+'.png'"
+                 :class="{'w-[60px] h-[60px]':index<5,'w-[40px] h-[40px]':index>=5}"/>
+          <text class="grid-text mb-1 text-1xl">{{ item.title }}</text>
+        </uv-grid-item>
+      </uv-grid>
+    </view>
   </view>
 
 </template>
@@ -22,6 +31,36 @@
 export default {
   data() {
     return {
+      baseList: [
+        {
+          name: 'photo',
+          title: '李白'
+        }, {
+          name: 'lock',
+          title: '韩信'
+        }, {
+          name: 'star',
+          title: '刘备'
+        }, {
+          name: 'photo',
+          title: '李白'
+        }, {
+          name: 'lock',
+          title: '韩信'
+        }, {
+          name: 'star',
+          title: '刘备'
+        }, {
+          name: 'photo',
+          title: '李白'
+        }, {
+          name: 'lock',
+          title: '韩信'
+        }, {
+          name: 'star',
+          title: '刘备'
+        },
+      ],
       list: [
         'https://cdn.uviewui.com/uview/swiper/swiper1.png',
         'https://cdn.uviewui.com/uview/swiper/swiper2.png',
