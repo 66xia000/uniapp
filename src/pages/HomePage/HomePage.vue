@@ -1,6 +1,6 @@
 <template>
   <view class="ml-8 mt-1">
-    <text class="text-xl font-bold">您好，欢迎光临！</text>
+    <text class="text-xl font-bold">您好，欢迎光临！ </text>
   </view>
   <view class="flex justify-center items-center overflow-hidden mt-2">
     <view class="p-4 bg-white rounded-lg shadow-md w-80">
