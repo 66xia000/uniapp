@@ -16,23 +16,22 @@
     </view>
     <view class="bg-transparent">
       <uv-grid :border="false" col="5">
-        <uv-grid-item v-for="(item,index) in baseList" :key="index">
-          <image :src="'../../static/icons/grid/'+index%6+'.png'"
-                 :class="{'w-[60px] h-[60px]':index<5,'w-[40px] h-[40px]':index>=5}"/>
+        <uv-grid-item v-for="(item, index) in baseList" :key="index">
+          <image :src="'../../static/icons/grid/' + index % 6 + '.png'"
+            :class="{ 'w-[60px] h-[60px]': index < 5, 'w-[40px] h-[40px]': index >= 5 }" />
           <text class="grid-text mb-1 text-1xl">{{ item.title }}</text>
         </uv-grid-item>
       </uv-grid>
     </view>
     <view class="m-auto  w-[90%] h-40 shadow-lg search-house"
-          style="background-image: url('../../static/icons/background.png')">
+      style="background-image: url('../../static/icons/background.png')">
       <view class="text-2xl m-2">帮我找房</view>
     </view>
     <view>
       <view class="text-2xl m-2">本周热门好房推荐</view>
       <uv-grid :border="false" col="3">
-        <uv-grid-item v-for="(item,index) in houseList" :key="index" class="ml-0.5">
-          <image :src="item.imagesrc"
-                 class="w-[120px] h-[80px]"/>
+        <uv-grid-item v-for="(item, index) in houseList" :key="index" class="ml-0.5">
+          <image :src="item.imagesrc" class="w-[120px] h-[80px]" />
           <view class="w-full ml-2 grid-text mb-1 text-lg text-left">{{ item.name }}</view>
           <view class="w-full ml-2 grid-text mb-1 text-xs text-left text-gray-600">{{ item.area }}m²</view>
           <view class="w-full ml-2 grid-text mb-1 text-sm text-left text-red-600">{{ item.price }}/m²</view>
@@ -73,9 +72,6 @@ export default {
         }, {
           name: 'lock',
           title: '韩信'
-        }, {
-          name: 'star',
-          title: '刘备'
         },
       ],
       houseList: [
