@@ -1,5 +1,8 @@
 <template>
-  <view class="flex justify-center items-center overflow-hidden">
+  <view class="ml-8 mt-1">
+    <text class="text-xl font-bold">您好，欢迎光临！</text>
+  </view>
+  <view class="flex justify-center items-center overflow-hidden mt-2">
     <view class="p-4 bg-white rounded-lg shadow-md w-80">
       <img class="rounded-lg w-full" :src="imageSrc" alt="Image Description">
     </view>
@@ -23,8 +26,10 @@
 
   <view class="flex justify-center items-center mt-4">
     <view class="p-4 bg-white rounded-lg shadow-md w-80">
+      <view class="mb-2">特色菜品</view>
+
       <uv-scroll-list>
-        <view v-for="(item, index) in ll" :key="index" class="ml-1 mr-1" >
+        <view v-for="(item, index) in ll" :key="index" class="mr-5" >
           <image  :src="item.image" mode="heightFix" style="height: 200px;"></image>
           <view class="flex justify-center items-center">
             <text class="w-full text-center">2333</text>
