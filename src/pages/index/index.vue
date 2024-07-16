@@ -23,6 +23,23 @@
         </uv-grid-item>
       </uv-grid>
     </view>
+    <view class="m-auto  w-[90%] h-40 shadow-lg search-house"
+          style="background-image: url('../../static/icons/background.png')">
+      <view class="text-2xl m-2">帮我找房</view>
+    </view>
+    <view>
+      <view class="text-2xl m-2">本周热门好房推荐</view>
+      <uv-grid :border="false" col="3">
+        <uv-grid-item v-for="(item,index) in houseList" :key="index" class="ml-0.5">
+          <image :src="item.imagesrc"
+                 class="w-[120px] h-[80px]"/>
+          <view class="w-full ml-2 grid-text mb-1 text-lg text-left">{{ item.name }}</view>
+          <view class="w-full ml-2 grid-text mb-1 text-xs text-left text-gray-600">{{ item.area }}m²</view>
+          <view class="w-full ml-2 grid-text mb-1 text-sm text-left text-red-600">{{ item.price }}/m²</view>
+        </uv-grid-item>
+      </uv-grid>
+    </view>
+
   </view>
 
 </template>
@@ -34,10 +51,19 @@ export default {
       baseList: [
         {
           name: 'photo',
-          title: '李白'
+          title: '二手房'
         }, {
           name: 'lock',
-          title: '韩信'
+          title: '新房'
+        }, {
+          name: 'star',
+          title: '租房'
+        }, {
+          name: 'photo',
+          title: '装修'
+        }, {
+          name: 'lock',
+          title: '家具商城'
         }, {
           name: 'star',
           title: '刘备'
@@ -50,15 +76,14 @@ export default {
         }, {
           name: 'star',
           title: '刘备'
-        }, {
-          name: 'photo',
-          title: '李白'
-        }, {
-          name: 'lock',
-          title: '韩信'
-        }, {
-          name: 'star',
-          title: '刘备'
+        },
+      ],
+      houseList: [
+        {
+          imagesrc: "https://ts1.cn.mm.bing.net/th/id/R-C.7362eff54c56e870c18a2126b26d9c23?rik=9if10ySst3TtbQ&riu=http%3a%2f%2fimg.zx123.cn%2fResources%2fzx123cn%2fuploadfile%2f2015%2f0910%2f20150910100439_21337.jpg&ehk=43EDk7VLby%2bA3dLs%2fPIIxej3Cs60UwiZ7rHB7eJ3zYk%3d&risl=&pid=ImgRaw&r=0",
+          name: "效果测试",
+          price: "20000",
+          area: "100-300",
         },
       ],
       list: [
@@ -102,5 +127,9 @@ export default {
 </script>
 
 <style>
-
+.search-house {
+  background-size: 130px;
+  background-repeat: no-repeat;
+  background-position: bottom right;
+}
 </style>
