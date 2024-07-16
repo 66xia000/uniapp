@@ -1,5 +1,6 @@
 <template>
   <view>
+
     <view class="relative">
       <view class="w-[95%] absolute h-[50px] bg-transparent z-50 flex ml-[2%] items-center">
         <uv-search placeholder="不要用贝壳" shape="round"></uv-search>
@@ -13,6 +14,7 @@
       <uv-swiper :list="list">
 
       </uv-swiper>
+
     </view>
   </view>
 
@@ -32,7 +34,23 @@ export default {
       temperature: "26",
     }
   },
-  methods: {},
+
+  methods: {
+    goScan: () => {
+      console.log("跳转scan中")
+      uni.navigateTo({
+        url: '/pages/scan/scan?id=111'
+      });
+    },
+
+    goCart: () => {
+      console.log("跳转scan中")
+      uni.navigateTo({
+        url: '/pages/cart/cart?id=111'
+      });
+    },
+  },
+
   onLoad() {
     let _this = this
     let key = "f772f4994eef66489335ef6c6769e269"; // 你自己的key
