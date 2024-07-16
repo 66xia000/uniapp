@@ -1,29 +1,19 @@
 <template>
   <view>
-    <button @click="goScan">跳转扫码</button>
-    <button @click="goCart">跳转购物车</button>
-    <view class="flex justify-around mt-3">
-      <image src="/static/OIP-C.jpg" class="h-[5rem] w-[5rem]"></image>
-      <image src="/static/logo.png" class="h-[5rem] w-[5rem]"></image>
-      <image src="/static/OIP-C.jpg" class="h-[5rem] w-[5rem]"></image>
+    <view class="relative">
+      <view class="w-[95%] absolute h-[50px] bg-transparent z-50 flex ml-[2%] items-center">
+        <uv-search placeholder="不要用贝壳" shape="round"></uv-search>
+        <view class=" justify-center flex text-gray-500">
+          <text>{{ city }}</text>
+          <uv-icon name="map"></uv-icon>
+          <text>/{{ weather }}</text>
+          <text>/{{ temperature }}°C</text>
+        </view>
+      </view>
+      <uv-swiper :list="list">
+
+      </uv-swiper>
     </view>
-    <view v-for="item in info" class="flex">
-      <view>姓名：{{ item.name }}</view>
-      <view>年龄：{{ item.age }}</view>
-      <view>性别：{{ item.sex }}</view>
-    </view>
-    <button class="w-11/12 h-10 mt-10">{{ buttonValue }}</button>
-    <button class="w-11/12 h-10 mt-4"
-            v-for="(value,key) in testArr" :key="key"
-            v-show="key%2===0"
-    >按钮{{ value }}的位置是{{ key }}
-    </button>
-    <button @click="()=>{showButton=!showButton}">点击改变按钮的显隐</button>
-    <button v-show="showButton">受上面的按钮控制</button>
-    <button @click="()=>{whichIMG=!whichIMG}">改变图片</button>
-    <image :src="whichIMG?img1:img2"></image>
-    <button @click="lightStatus=!lightStatus">开关灯</button>
-    <view :class="{'w-full':true,'h-[50px]':true,'bg-amber-700':lightStatus,'bg-blue-500':!lightStatus}"></view>
   </view>
 
 </template>
@@ -32,37 +22,42 @@
 export default {
   data() {
     return {
-      whichIMG: true,
-      img1: "https://img.zcool.cn/community/01eafb5d2b3736a8012148379339e3.jpg@3000w_1l_0o_100sh.jpg",
-      img2: "https://img95.699pic.com/photo/50074/0919.jpg_wh860.jpg",
-      buttonValue: "测试按钮",
-      testArr: [1, 2, 3, 'a', 'b', 'c'],
-      showButton: true,
-      info: [
-        {name: "柳文涛", age: 1, sex: "Null"},
-        {name: "郑鸿洋", age: 2, sex: "男"},
-        {name: "李雅权", age: 3, sex: "男"},
+      list: [
+        'https://cdn.uviewui.com/uview/swiper/swiper1.png',
+        'https://cdn.uviewui.com/uview/swiper/swiper2.png',
+        'https://cdn.uviewui.com/uview/swiper/swiper3.png',
       ],
-      lightStatus: true,
+      city: "定位中",
+      weather: "未知",
+      temperature: "26",
     }
   },
-  methods: {
-    goScan: () => {
-      console.log("跳转scan中")
-      uni.navigateTo({
-        url: '/pages/scan/scan?id=111'
-      });
-    },
-
-    goCart: () => {
-      console.log("跳转scan中")
-      uni.navigateTo({
-        url: '/pages/cart/cart?id=111'
-      });
-    },
-  },
+  methods: {},
   onLoad() {
-
+    let _this = this
+    let key = "f772f4994eef66489335ef6c6769e269"; // 你自己的key
+    uni.getLocation({
+      type: 'wgs84',
+      success: function (res) {
+        let longitude = res.longitude; // 经度
+        let latitude = res.latitude;  // 纬度
+        uni.request({
+          url: `https://restapi.amap.com/v3/geocode/regeo?key=${key}&location=${longitude},${latitude}&poitype=&radius=&extensions=all&roadlevel=0`, // 高德地图
+          success: (res) => {
+            _this.city = res.data.regeocode.addressComponent.city;  // 城市赋值
+            let adcode = res.data.regeocode.addressComponent.adcode;  // 保存城市编码
+            // 发送第二个请求获取天气
+            uni.request({
+              url: `https://restapi.amap.com/v3/weather/weatherInfo?key=${key}&city=${adcode}`, // 获取天气的地址。
+              success: (res) => {
+                _this.weather = res.data.lives[0].weather; // 天气赋值
+                _this.temperature = res.data.lives[0].temperature; // 温度赋值
+              }
+            });
+          }
+        });
+      }
+    });
   },
 }
 </script>
