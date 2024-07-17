@@ -27,10 +27,10 @@
       >
         <template v-for="(item,index) in currentSuperMarket.commodities" :key="index">
           <uv-vtabs-item :index="index">
-            <view class="item flex mt-4"
+            <view class="item flex mt-4 rounded-2xl"
                   v-for="(item2,index2) in item.goods"
                   :key="index2">
-              <image :src="item2.imgSrc" class="h-24 w-24"></image>
+              <image :src="item2.imgSrc" class="h-24 w-24 rounded-lg"></image>
               <view class="flex-col flex-1">
                 <view class="h-12 items-center  ml-2">
                   <view class="text-xl mt-4 ">{{ item2.name }}</view>
@@ -61,6 +61,7 @@
       </uv-vtabs>
 
     </view>
+    <view></view>
   </view>
 </template>
 <script>
