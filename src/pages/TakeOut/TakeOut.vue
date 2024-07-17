@@ -1,6 +1,6 @@
 <template>
-  <view>
-    <view class="w-[90%] m-[5%]">
+  <view class="relative">
+    <view class="w-[90%] m-[5%] ">
       <uv-search placeholder="请输入商品名称" v-model="searchKeyword"></uv-search>
     </view>
     <view class="border-gray-200 border-solid border-t border-b-0  pl-4 pr-2">
@@ -20,12 +20,12 @@
     </view>
     <view class="mt-8">
       <uv-vtabs
-          :chain="chain"
+          :chain="true"
           :list="currentSuperMarket.commodities"
           :height="height"
           hdHeight="100rpx"
       >
-        <template v-for="(item,index) in currentSuperMarket.commodities" :key="index">
+        <view v-for="(item,index) in currentSuperMarket.commodities" :key="index">
           <uv-vtabs-item :index="index">
             <view class="item flex mt-4 rounded-2xl"
                   v-for="(item2,index2) in item.goods"
@@ -56,12 +56,26 @@
               <uv-gap bg-color="#f1f1f1" height="4"></uv-gap>
             </view>
           </uv-vtabs-item>
-        </template>
+        </view>
         <uv-gap bg-color="#fff" height="300"></uv-gap>
       </uv-vtabs>
-
     </view>
-    <view></view>
+    <view class="flex absolute bottom-0 z-50 w-full h-20 ">
+      <view class="flex w-3/5 h-full bg-gray-100">
+        <uv-icon name="shopping-cart" size="70"></uv-icon>
+        <view class="w-6 h-6 bg-red-500 rounded-full text-white text-lg text-center align-middle items-center">
+          {{ sumCount() }}
+        </view>
+        <view class="flex flex-1 right-0 text-right text-2xl items-center align-middle justify-end">
+          <text>
+            ￥{{ sumPrice() }}
+          </text>
+        </view>
+      </view>
+      <view class="flex-1 bg-gray-800  flex items-center justify-center" >
+        <text class="text-white text-2xl mb-5">去购物车</text>
+      </view>
+    </view>
   </view>
 </template>
 <script>
@@ -141,6 +155,31 @@ export default {
         ]
       },
     };
+  },
+  computed: {
+    height() {
+      return uni.getSystemInfoSync().windowHeight - uni.upx2px(300);
+    }
+  },
+  methods: {
+    sumPrice() {
+      let sum = 0;
+      this.currentSuperMarket.commodities.forEach((commodity) => {
+        commodity.goods.forEach((good) => {
+          sum += good.count * good.price;
+        })
+      })
+      return sum
+    },
+    sumCount() {
+      let sum = 0;
+      this.currentSuperMarket.commodities.forEach((commodity) => {
+        commodity.goods.forEach((good) => {
+          sum += good.count;
+        })
+      })
+      return sum
+    },
   },
 };
 
