@@ -40,17 +40,17 @@
     </view>
     <view class="ml-2">
       <view class="text-2xl">猜你不喜欢</view>
-      <view class="flex" v-for="item in likeList">
-        <image class="w-36 h-24" :src="item.imagesrc"></image>
+      <view class="flex mt-4" v-for="item in likeList">
+        <image class="w-36 h-24 rounded-lg" :src="item.imagesrc"></image>
         <view class="flex-1 ml-2 ">
-          <view class="text-lg">{{ item.name }}{{item.room}} {{item.faceto}}</view>
-          <view class="text-sm">{{item.name}}/{{item.area}}m²/{{item.faceto}}/{{item.name}}</view>
+          <view class="text-lg">{{ item.name }}{{ item.room }} {{ item.faceto }}</view>
+          <view class="text-sm">{{ item.room }}/{{ item.area }}m²/{{ item.faceto }}/{{ item.name }}</view>
           <view class="flex">
             <view v-for="tag in item.tags" class="mr-2">
-              <uv-tags :text="tag" plain > </uv-tags>
+              <uv-tags :text="tag" plain></uv-tags>
             </view>
           </view>
-          <view class="text-xs text-gray-600">{{item.price}}元/平</view>
+          <view class="text-xs text-gray-600">{{ item.price }}元/平</view>
         </view>
 
       </view>
@@ -98,15 +98,52 @@ export default {
           area: "100-300",
         },
       ],
-      likeList:[{
-        name:"上海花园(高新)",
-        room:"2室2厅",
-        faceto:"南",
-        imagesrc:"https://ke-image.ljcdn.com/lease-image/house/69573aba991b7c539d40416a3c20cc36.jpeg.250x182.jpg",
-        area:"108.78",
-        price:"22891",
-        tags:["近地铁","满五年","VR看房"]
-      }],
+      likeList: [{
+        name: "上海花园(高新)",
+        room: "2室2厅",
+        faceto: "南",
+        imagesrc: "https://ke-image.ljcdn.com/lease-image/house/69573aba991b7c539d40416a3c20cc36.jpeg.250x182.jpg",
+        area: "108.78",
+        price: "22891",
+        tags: ["近地铁", "满五年", "VR看房"]
+      },
+        {
+          name: "北京阳光小区",
+          room: "3室1厅",
+          faceto: "东",
+          imagesrc: "https://ke-image.ljcdn.com/110000-inspection/pc1_41SgFFVXf.jpg!m_fill,w_250,h_182,l_fbk,o_auto",
+          area: "95.00",
+          price: "18000",
+          tags: ["学区房", "新装修", "交通便利"]
+        },
+        {
+          name: "广州蓝海公寓",
+          room: "2室2厅",
+          faceto: "南",
+          imagesrc: "https://ke-image.ljcdn.com/lease-image/house/4d47129faa1f2db6f1b81ac42d4abf33.jpeg.250x182.jpg",
+          area: "85.00",
+          price: "26000",
+          tags: ["海景房", "近商圈", "智能家居"]
+        },
+        {
+          name: "深圳科技园",
+          room: "1室1厅",
+          faceto: "西",
+          imagesrc: "https://ke-image.ljcdn.com/rent-user-avatar/959ac3d9-f746-4f3a-a3d5-faa845333852.250x182.jpg",
+          area: "65.00",
+          price: "32000",
+          tags: ["科技园区", "低密度", "绿化好"]
+        },
+        {
+          name: "杭州西湖美景",
+          room: "4室2厅",
+          faceto: "北",
+          imagesrc: "https://ke-image.ljcdn.com/wanjia/b9a6bcd18129b330dd0fb7ec8a2468a7-1717642029065/85433d827180482ab914b50495da5754.jpg.250x182.jpg",
+          area: "130.00",
+          price: "21000",
+          tags: ["湖畔住宅", "文化氛围", "安静舒适"]
+        }
+      ],
       list: [
         'https://cdn.uviewui.com/uview/swiper/swiper1.png',
         'https://cdn.uviewui.com/uview/swiper/swiper2.png',
