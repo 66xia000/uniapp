@@ -57,7 +57,7 @@
             </view>
           </uv-vtabs-item>
         </template>
-        <uv-gap bg-color="#fff" height="600"></uv-gap>
+        <uv-gap bg-color="#fff" height="300"></uv-gap>
       </uv-vtabs>
 
     </view>
@@ -92,15 +92,50 @@ export default {
           },
           {
             name: "蔬菜",
-            goods: []
+            goods: [{
+              name: "番茄",
+              price: "1.98",
+              count: 0,
+              imgSrc: "https://th.bing.com/th/id/OIP.bJ88-3D6wfLsvjAojVZSCgHaHa?w=174&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+            },
+              {
+                name: "生菜",
+                price: "1.98",
+                count: 0,
+                imgSrc: "https://th.bing.com/th/id/OIP.gmR7yetDhEegaQERozwCTwHaGt?w=185&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+              }]
           },
           {
             name: "水果",
-            goods: []
+            goods: [
+              {
+                name: "苹果",
+                price: "5.98",
+                count: 0,
+                imgSrc: "https://th.bing.com/th/id/OIP.HTN-sUDdcgATz6BiZn5yeQHaH7?w=158&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+              },
+              {
+                name: "梨",
+                price: "3.48",
+                count: 0,
+                imgSrc: "https://th.bing.com/th/id/OIP.l597RB9vwFOSC1JTKmB6JwHaHa?w=174&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+              }
+            ]
           },
           {
             name: "调料",
-            goods: []
+            goods: [{
+              name: "盐",
+              price: "1.5",
+              count: 0,
+              imgSrc: "https://th.bing.com/th/id/OIP.7BO7vqejFo2iY7XYoysInwHaHa?w=195&h=195&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+            },
+              {
+                name: "生抽",
+                price: "1.98",
+                count: 0,
+                imgSrc: "https://th.bing.com/th/id/OIP.O9x69xZK6UwxQAq5S7mtswHaHa?w=180&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+              }]
           }
         ]
       },
