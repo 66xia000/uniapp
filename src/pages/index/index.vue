@@ -1,7 +1,7 @@
 <template>
   <view>
     <view class="relative">
-      <view class="w-[95%] absolute h-[50px] bg-transparent z-50 flex ml-[2%] items-center">
+      <view class="w-[95%] absolute h-[100px] bg-transparent z-50 flex ml-[2%] items-center">
         <uv-search placeholder="不要用贝壳" shape="round"></uv-search>
         <view class=" justify-center flex text-gray-500">
           <text>{{ city }}</text>
@@ -10,35 +10,51 @@
           <text>/{{ temperature }}°C</text>
         </view>
       </view>
-      <uv-swiper :list="list">
+      <uv-swiper class="h-full" :list="list">
 
       </uv-swiper>
     </view>
-    <view class="bg-transparent">
+    <view class="bg-transparent mt-5">
       <uv-grid :border="false" col="5">
         <uv-grid-item v-for="(item, index) in baseList" :key="index">
           <image :src="'../../static/icons/grid/' + index % 6 + '.png'"
-            :class="{ 'w-[60px] h-[60px]': index < 5, 'w-[40px] h-[40px]': index >= 5 }" />
+                 :class="{ 'w-[60px] h-[60px]': index < 5, 'w-[40px] h-[40px]': index >= 5 }"/>
           <text class="grid-text mb-1 text-1xl">{{ item.title }}</text>
         </uv-grid-item>
       </uv-grid>
     </view>
     <view class="m-auto  w-[90%] h-40 shadow-lg search-house"
-      style="background-image: url('../../static/icons/background.png')">
+          style="background-image: url('../../static/icons/background.png')">
       <view class="text-2xl m-2">帮我找房</view>
     </view>
     <view>
       <view class="text-2xl m-2">本周热门好房推荐</view>
       <uv-grid :border="false" col="3">
         <uv-grid-item v-for="(item, index) in houseList" :key="index" class="ml-0.5">
-          <image :src="item.imagesrc" class="w-[120px] h-[80px]" />
+          <image :src="item.imagesrc" class="w-[120px] h-[80px]"/>
           <view class="w-full ml-2 grid-text mb-1 text-lg text-left">{{ item.name }}</view>
           <view class="w-full ml-2 grid-text mb-1 text-xs text-left text-gray-600">{{ item.area }}m²</view>
           <view class="w-full ml-2 grid-text mb-1 text-sm text-left text-red-600">{{ item.price }}/m²</view>
         </uv-grid-item>
       </uv-grid>
     </view>
+    <view class="ml-2">
+      <view class="text-2xl">猜你不喜欢</view>
+      <view class="flex" v-for="item in likeList">
+        <image class="w-36 h-24" :src="item.imagesrc"></image>
+        <view class="flex-1 ml-2 ">
+          <view class="text-lg">{{ item.name }}{{item.room}} {{item.faceto}}</view>
+          <view class="text-sm">{{item.name}}/{{item.area}}m²/{{item.faceto}}/{{item.name}}</view>
+          <view class="flex">
+            <view v-for="tag in item.tags" class="mr-2">
+              <uv-tags :text="tag" plain > </uv-tags>
+            </view>
+          </view>
+          <view class="text-xs text-gray-600">{{item.price}}元/平</view>
+        </view>
 
+      </view>
+    </view>
   </view>
 
 </template>
@@ -82,6 +98,15 @@ export default {
           area: "100-300",
         },
       ],
+      likeList:[{
+        name:"上海花园(高新)",
+        room:"2室2厅",
+        faceto:"南",
+        imagesrc:"https://ke-image.ljcdn.com/lease-image/house/69573aba991b7c539d40416a3c20cc36.jpeg.250x182.jpg",
+        area:"108.78",
+        price:"22891",
+        tags:["近地铁","满五年","VR看房"]
+      }],
       list: [
         'https://cdn.uviewui.com/uview/swiper/swiper1.png',
         'https://cdn.uviewui.com/uview/swiper/swiper2.png',
