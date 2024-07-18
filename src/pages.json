@@ -46,7 +46,21 @@
     {
       "path": "pages/mine/history",
       "style": {
-        "navigationBarTitleText": "",
+        "navigationBarTitleText": "历史记录",
+        "enablePullDownRefresh": true
+      }
+    },
+    {
+      "path": "pages/mine/random",
+      "style": {
+        "navigationBarTitleText": "抽奖",
+        "enablePullDownRefresh": true
+      }
+    },
+    {
+      "path": "pages/mine/phone",
+      "style": {
+        "navigationBarTitleText": "问题反馈",
         "enablePullDownRefresh": true
       }
     }

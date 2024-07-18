@@ -35,13 +35,11 @@ export default {
       cells: ["历史记录", "抽奖", "帮助", "反馈", "设置", "退出登录"],
       cellLinks: [
         "/pages/mine/history",
+        "/pages/mine/random",
+        "/pages/mine/phone",
+        "/pages/mine/phone",
         "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
+        ""
       ],
       avatarUrl: 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
     }
