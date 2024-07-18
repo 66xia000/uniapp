@@ -5,9 +5,9 @@
         <uv-search placeholder="请输入消费点名称" v-model="searchKeyword"></uv-search>
       </view>
     </view>
-    <view class=" bg-gray-100 w-[95%] ml-[2.5%] mr-[2.5%] ">
+    <view class=" bg-white w-[95%] ml-[2.5%] mr-[2.5%] ">
       <view v-for="superMarket in SuperMarketList"
-            class="bg-white w-[90%] ml-[5%] mt-12 rounded-lg"
+            class="bg-white w-7/8 m-6 rounded-lg"
             @click="goToTakeOut(superMarket.name)"
       >
         <view class="flex justify-between w-full">
@@ -82,7 +82,7 @@ export default {
     };
   },
   methods: {
-    goToTakeOut(name){
+    goToTakeOut(){
       uni.navigateBack()
     }
   }
