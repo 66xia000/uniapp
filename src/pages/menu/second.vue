@@ -20,7 +20,7 @@ export default {
             title: option.name
         });
         uni.request({
-        url: 'http://localhost:8081/second/1?name='+option.name,
+        url: 'http://47.109.98.51:8080/second/1?name='+option.name,
         success: (res) => {
           _this.t=res.data.text;
           console.log(res.data);   

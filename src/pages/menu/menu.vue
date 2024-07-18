@@ -37,7 +37,7 @@ export default {
     onLoad() {
     let _this=this;
     uni.request({
-        url: 'http://localhost:8080/123/1', //仅为示例，并非真实接口地址。
+        url: 'http://47.109.98.51:8080/123/1', //仅为示例，并非真实接口地址。
         success: (res) => {
           _this.ll=res.data;
         }
