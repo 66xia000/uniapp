@@ -184,6 +184,9 @@ export default {
       uni.navigateTo({
         url: '/pages/TakeOut/ChangeSuperMarket'
       })
+    },
+    isShow(name){
+
     }
   },
 };

@@ -15,7 +15,7 @@
         </view>
         <view class="absolute bottom-0 right-0 text-xs text-sky-500">
           <!-- 使用 'absolute bottom-0 right-0' 定位到右下角 -->
-          <text @click="redict(item.text)">查看详情 ></text>
+          <text>查看详情 ></text>
         </view>
       </view>
     </view>
@@ -40,7 +40,7 @@ export default {
   onLoad() {
     let _this = this;
     uni.request({
-      url: 'http://47.109.98.51:8080/123/1', //仅为示例，并非真实接口地址。
+      url: 'http://47.109.98.51:56882/123/1', //仅为示例，并非真实接口地址。
       success: (res) => {
         _this.ll = res.data;
       }
