@@ -1,13 +1,14 @@
 <template>
   <view class="bg-gray-100 min-h-96">
     <view class="w-full bg-white">
-      <view class="w-[95%] ml-[2.5%] mr-[2.5%]">
+      <view class=" bg-gray-100 w-[95%] ml-[2.5%] mr-[2.5%]">
         <uv-search placeholder="请输入消费点名称" v-model="searchKeyword"></uv-search>
       </view>
     </view>
-    <view class="w-[95%] m-[2.5%]">
+    <view class=" bg-gray-100 w-[95%] ml-[2.5%] mr-[2.5%] ">
       <view v-for="superMarket in SuperMarketList"
-            class="bg-white w-[90%] ml-[5%]  rounded-lg"
+            class="bg-white w-[90%] ml-[5%] mt-12 rounded-lg"
+            @click="goToTakeOut(superMarket.name)"
       >
         <view class="flex justify-between w-full">
           <view class="text-2xl">{{ superMarket.name }}</view>
@@ -30,7 +31,7 @@
           <uv-grid :border="false" col="4">
             <uv-grid-item v-for="(tag,index) in superMarket.tags2" :key="index">
               <view class="left-0  mt-2">
-                <uv-tags  :text="tag" plain plain-fill color="#AAA" borderColor="#AAA"></uv-tags>
+                <uv-tags :text="tag" plain plain-fill color="#AAA" borderColor="#AAA"></uv-tags>
               </view>
             </uv-grid-item>
           </uv-grid>
@@ -79,6 +80,11 @@ export default {
         }
       ]
     };
+  },
+  methods: {
+    goToTakeOut(name){
+      uni.navigateBack()
+    }
   }
 }
 </script>
