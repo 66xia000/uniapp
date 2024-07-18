@@ -6,7 +6,7 @@
     <view class="border-gray-200 border-solid border-t border-b-0  pl-4 pr-2">
       <view class="flex justify-between w-full">
         <view class="text-2xl">{{ currentSuperMarket.name }}</view>
-        <view class="flex items-center">
+        <view class="flex items-center" @click="handleChangeSuperMarket">
           <view class="text-blue-600">切换消费点</view>
           <uv-icon name="arrow-right" class="text-2xl"></uv-icon>
         </view>
@@ -180,6 +180,11 @@ export default {
       })
       return sum
     },
+    handleChangeSuperMarket(){
+      uni.navigateTo({
+        url: '/pages/TakeOut/ChangeSuperMarket'
+      })
+    }
   },
 };
 
