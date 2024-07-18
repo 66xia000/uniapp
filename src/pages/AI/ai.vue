@@ -404,7 +404,7 @@ view, button, text, input, textarea {
       margin-left: 25rpx;
       width: 120rpx;
       height: 75rpx;
-      background: #ed5a65;
+      background: #2a92f9;
       border-radius: 50rpx;
       font-size: 28rpx;
       font-family: PingFang SC;

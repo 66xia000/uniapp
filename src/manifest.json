@@ -1,6 +1,6 @@
 {
-    "name" : "praiseGuang",
-    "appid" : "__UNI__3FDF4F7",
+    "name" : "AI菜谱-SWUN",
+    "appid" : "__UNI__B044DC1",
     "description" : "开发测试",
     "versionName" : "1.0.0",
     "versionCode" : "100",
@@ -50,18 +50,17 @@
     "quickapp" : {},
     /* 小程序特有相关 */
     "mp-weixin" : {
-        "requiredPrivateInfos": ["getLocation"],
+        "requiredPrivateInfos" : [ "getLocation" ],
         "appid" : "wx1d4cde4e31114c0d",
         "setting" : {
             "urlCheck" : false
         },
         "usingComponents" : true,
-        "permission": {
-            "scope.userLocation": {
-                "desc": "你的位置信息将用于小程序位置接口的效果展示"
+        "permission" : {
+            "scope.userLocation" : {
+                "desc" : "你的位置信息将用于小程序位置接口的效果展示"
             }
         }
-
     },
     "mp-alipay" : {
         "usingComponents" : true
@@ -75,5 +74,6 @@
     "uniStatistics" : {
         "enable" : false
     },
-    "vueVersion" : "3"
+    "vueVersion" : "3",
+    "fallbackLocale" : "zh-Hans"
 }

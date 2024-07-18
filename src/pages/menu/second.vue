@@ -27,7 +27,7 @@ export default {
       url: 'http://47.109.98.51:56882/second/1?name=' + option.name,
       success: (res) => {
         _this.t = res.data.text;
-        _this.videoSrc = res.data.videoSrc ? res.data.videoSrc : _this.videoSrc;
+        _this.videoSrc = res.data.url ? res.data.url : _this.videoSrc;
         console.log(res.data);
       }
     })

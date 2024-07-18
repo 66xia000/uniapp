@@ -6,7 +6,7 @@
     >
       <!-- 添加了 'relative' 和 'height: 100%' -->
       <view class="flex items-center justify-center">
-        <image :src="item.image" class="h-32 w-52 rounded-2xl"></image>
+        <image :src="item.image" class="h-32 w-44 rounded-2xl"></image>
       </view>
       <view class="ml-10">
         <view>
