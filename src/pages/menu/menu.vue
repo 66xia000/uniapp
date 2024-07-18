@@ -1,18 +1,18 @@
 <template>
-    <view class="container mx-auto max-w-screen-lg shadow-lg rounded-lg p-6 h-20 mt-5" style="width: 80%;">
-        <view class="flex items-center space-x-4">
-
-            <view class="relative p-2 bg-white rounded-lg shadow-md w-40 h-40">
-                <img class="absolute inset-0 object-cover rounded-lg w-40 h-20"
-                    src="https://cp1.douguo.com/upload/caiku/5/b/7/yuan_5b56cbf976015fc3fa60d293331e43e7.jpg"
-                    alt="Image Description">
+    <view v-for="(item, index) in ll "  :key="index" class="container mx-auto max-w-screen-lg shadow-lg p-6 h-28 mt-5 rounded-2xl	" style="width: 80%;">
+        <view class="relative flex items-center space-x-4" style="height: 100%;">
+            <!-- 添加了 'relative' 和 'height: 100%' -->
+            <view class="flex items-center justify-center">
+                <image :src="item.image" class="h-32 w-52 rounded-2xl"></image>
             </view>
-            <view class="ml-6">
-                <view>
-                    <text class="text-lg">我叫郑海洋</text>
+            <view class="ml-10">
+                <view >
+                    <!-- 使用 'absolute top-0 right-0' 定位到右上角 -->
+                    <text class="text-lg">{{ item.text }}</text>
                 </view>
-                <view class="mt-6">
-                    <text>勿Q 2754423942</text>
+                <view class="absolute bottom-0 right-0 text-xs text-sky-500">
+                    <!-- 使用 'absolute bottom-0 right-0' 定位到右下角 -->
+                    <text @click="redict(item.text)">查看详情 ></text>
                 </view>
             </view>
         </view>
@@ -23,18 +23,25 @@
 export default {
     data() {
         return {
-
-        }
+            ll : []
+        };
     },
     methods: {
-        test() {
-            uni.request({
-                url: 'http://localhost:8080/123/1', //仅为示例，并非真实接口地址。
-                success: (res) => {
-                    console.log(res.data);
-                }
+        redict(x){
+            uni.navigateTo({
+                url: '/pages/menu/second?name='+x
             });
         }
-    }
-}
+        // 在这里定义你的方法
+    },
+    onLoad() {
+    let _this=this;
+    uni.request({
+        url: 'http://localhost:8080/123/1', //仅为示例，并非真实接口地址。
+        success: (res) => {
+          _this.ll=res.data;
+        }
+      })
+  }
+};
 </script>

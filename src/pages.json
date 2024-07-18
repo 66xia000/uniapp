@@ -29,6 +29,12 @@
       "style": {
         "navigationBarTitleText": "AI"
       }
+    },
+    {
+      "path": "pages/menu/second",
+      "style": {
+        "navigationBarTitleText": "菜谱"
+      }
     }
   ],
   "globalStyle": {
