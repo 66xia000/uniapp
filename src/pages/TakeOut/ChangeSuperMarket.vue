@@ -9,6 +9,7 @@
       <view v-for="superMarket in SuperMarketList"
             class="bg-white w-7/8 m-6 rounded-lg"
             @click="goToTakeOut(superMarket.name)"
+            v-show="isShow(superMarket.name)"
       >
         <view class="flex justify-between w-full">
           <view class="text-2xl">{{ superMarket.name }}</view>
@@ -84,6 +85,9 @@ export default {
   methods: {
     goToTakeOut(){
       uni.navigateBack()
+    },
+    isShow(name){
+      return name.includes(this.searchKeyword)
     }
   }
 }
