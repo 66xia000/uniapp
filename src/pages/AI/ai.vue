@@ -104,6 +104,9 @@ export default {
     })
     this.getAccessToken()
   },
+  onShow() {
+    this.myAvatar = uni.getStorageSync('userAvatar')?uni.getStorageSync('userAvatar'):"/static/image/head.png"
+  },
   onUnload() {
     // uni.offKeyboardHeightChange()
   },
