@@ -1,7 +1,7 @@
 <template>
   <view class="chat">
     <view class="topTabbar">
-      <view class="text">匿名</view>
+      <view class="text text-2xl">对话以获得菜单</view>
     </view>
     <scroll-view :style="{height: `${windowHeight-inputHeight - 50}rpx`}"
                  id="scrollview"

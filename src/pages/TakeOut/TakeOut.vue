@@ -29,7 +29,9 @@
           <uv-vtabs-item :index="index">
             <view class="item flex mt-4 rounded-2xl"
                   v-for="(item2,index2) in item.goods"
-                  :key="index2">
+                  :key="index2"
+                  v-show="isShow(item2.name)"
+            >
               <image :src="item2.imgSrc" class="h-24 w-24 rounded-lg"></image>
               <view class="flex-col flex-1">
                 <view class="h-12 items-center  ml-2">
@@ -186,7 +188,7 @@ export default {
       })
     },
     isShow(name){
-
+    return name.includes(this.searchKeyword)
     }
   },
 };
