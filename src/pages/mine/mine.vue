@@ -18,7 +18,7 @@
   </view>
 
   <view v-for="(cell, index) in cells" :key="index" style="display: flex; justify-content: center;">
-    <view class="mt-7" style="width: 90%;">
+    <view class="mt-7" style="width: 90%;" @click="handleCellClick(index)">
       <uv-cell value=">" :label=cell :center="true" customStyle="text-blue-500"></uv-cell>
     </view>
   </view>
@@ -32,16 +32,16 @@ export default {
       flag: true,
       f: true,
       name: '',
-      cells: ["历史记录","抽奖", "帮助", "反馈", "设置", "退出登录"],
-      cellLinks:[
-          "",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "",
-          "",
+      cells: ["历史记录", "抽奖", "帮助", "反馈", "设置", "退出登录"],
+      cellLinks: [
+        "/pages/mine/history",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
       ],
       avatarUrl: 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
     }
@@ -53,9 +53,13 @@ export default {
       this.flag = false;
     },
     inp(e) {
-      if(!e.detail.value)
+      if (!e.detail.value)
         this.f = false;
-        this.name = e.detail.value;
+      this.name = e.detail.value;
+    },
+    handleCellClick(index) {
+      uni.navigateTo(
+          {url: this.cellLinks[index]})
     }
   }
 }

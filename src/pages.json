@@ -42,6 +42,13 @@
         "navigationBarTitleText": "",
         "enablePullDownRefresh": true
       }
+    },
+    {
+      "path": "pages/mine/history",
+      "style": {
+        "navigationBarTitleText": "",
+        "enablePullDownRefresh": true
+      }
     }
   ],
   "globalStyle": {
