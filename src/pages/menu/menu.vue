@@ -2,7 +2,7 @@
   <view v-for="(item, index) in ll " :key="index"
         class="container mx-auto max-w-screen-lg shadow-lg p-6 h-28 mt-5 rounded-2xl	" style="width: 80%;">
     <view class="relative flex items-center space-x-4" style="height: 100%;"
-          @click="redict(item.text)"
+          @click="handleOnclick(item) "
     >
       <!-- 添加了 'relative' 和 'height: 100%' -->
       <view class="flex items-center justify-center">
@@ -30,11 +30,15 @@ export default {
     };
   },
   methods: {
-    redict(x) {
+    handleOnclick(item) {
+      let historyList = JSON.parse(uni.getStorageSync("historyList")?uni.getStorageSync("historyList"):"[]")
+      if (historyList.findIndex((e) => e.text === item.text)===-1)
+        historyList.push(item)
+      uni.setStorageSync("historyList",JSON.stringify(historyList))
       uni.navigateTo({
-        url: '/pages/menu/second?name=' + x
+        url: '/pages/menu/second?name=' + item.text
       });
-    }
+    },
     // 在这里定义你的方法
   },
   onLoad() {

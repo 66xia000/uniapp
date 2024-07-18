@@ -32,7 +32,7 @@
                   :key="index2"
                   v-show="isShow(item2.name)"
             >
-              <image :src="item2.imgSrc" class="h-24 w-24 rounded-lg"></image>
+              <image :src="item2.imgSrc" mode="aspectFill" class="h-24 w-24 rounded-lg"></image>
               <view class="flex-col flex-1">
                 <view class="h-12 items-center  ml-2">
                   <view class="text-xl mt-4 ">{{ item2.name }}</view>
