@@ -1,16 +1,66 @@
 {
   "pages": [
-    //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
     {
-      "path": "pages/index/index",
+      "path": "pages/HomePage/HomePage",
       "style": {
-        "navigationBarTitleText": "uni-app"
+        "navigationBarTitleText": "首页"
       }
     },
     {
-      "path": "pages/scan/scan",
+      "path": "pages/menu/menu",
+      "style": {
+        "navigationBarTitleText": "菜单"
+      }
+    },
+    {
+      "path": "pages/TakeOut/TakeOut",
+      "style": {
+        "navigationBarTitleText": "外卖"
+      }
+    },
+    {
+      "path": "pages/mine/mine",
+      "style": {
+        "navigationBarTitleText": "我的"
+      }
+    },
+    {
+      "path": "pages/AI/ai",
+      "style": {
+        "navigationBarTitleText": "AI"
+      }
+    },
+    {
+      "path": "pages/menu/second",
+      "style": {
+        "navigationBarTitleText": "菜谱"
+      }
+    },
+    {
+      "path": "pages/TakeOut/ChangeSuperMarket",
       "style": {
         "navigationBarTitleText": "",
+        "enablePullDownRefresh": true
+      }
+    },
+    {
+      "path": "pages/mine/history",
+      "style": {
+        "navigationBarTitleText": "历史记录",
+        "enablePullDownRefresh": true
+      }
+    },
+    {
+      "path": "pages/mine/random",
+      "style": {
+        "navigationBarTitleText": "抽奖",
+        "enablePullDownRefresh": true
+      }
+    },
+    {
+      "path": "pages/mine/phone",
+      "style": {
+        "navigationBarTitleText": "问题反馈",
         "enablePullDownRefresh": true
       }
     }
@@ -20,5 +70,43 @@
     "navigationBarTitleText": "uni-app",
     "navigationBarBackgroundColor": "#F8F8F8",
     "backgroundColor": "#F8F8F8"
-	}
+  },
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#3787e4",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/HomePage/HomePage",
+        "iconPath": "static/icons/1-2.png",
+        "selectedIconPath": "static/icons/1-1.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/menu/menu",
+        "iconPath": "static/icons/2-1.png",
+        "selectedIconPath": "static/icons/2-2.png",
+        "text": "菜单"
+      },
+      {
+        "pagePath": "pages/AI/ai",
+        "iconPath": "static/icons/ai.png",
+        "selectedIconPath": "static/icons/ai.png",
+        "text": "AI"
+      },
+      {
+        "pagePath": "pages/TakeOut/TakeOut",
+        "iconPath": "static/icons/4-2.png",
+        "selectedIconPath": "static/icons/4-1.png",
+        "text": "外卖"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "iconPath": "static/icons/5-2.png",
+        "selectedIconPath": "static/icons/5-1.png",
+        "text": "我的"
+      }
+    ]
+  }
 }
